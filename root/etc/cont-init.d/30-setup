@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bash
+
+# Copy default data
+if [ ! -e /config/sbnc.conf ]; then
+  cp -r /defaults/* /config
+  chown -R abc:abc /config
+fi
+
+# If a pidfile is present, delete it
+if [ -e /config/sbnc.pid ]; then
+  rm -rf /config/sbnc.pid
+fi
